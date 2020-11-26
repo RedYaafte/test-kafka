@@ -1,0 +1,34 @@
+version: "3.5"
+services:
+  sql:
+    image: "${SQL_IMAGE}"
+    container_name: "${SQL_CONTAINER_NAME}"
+    environment:
+      PGDATA: "${SQL_DATA_INSIDE}/pgdata"
+    expose:
+      - "${SQL_PORT}"
+    volumes:
+      - "sql-data:${SQL_DATA_INSIDE}"
+  app:
+    image: "${APP_IMAGE}"
+    command: sh -c "bash start.sh || tail -f /dev/null"
+    container_name: "${APP_CONTAINER}"
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: "${APP_CONTAINER}"
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+      - "9092:9092"
+    volumes:
+      - "${APP_VOLUME}"
+    working_dir: "${APP_WORKING_DIR}"
+    depends_on:
+      - sql
+    tty: true
+networks:
+  default:
+    name: "${NETWORK}"
+volumes:
+  sql-data:
+

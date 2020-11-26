@@ -1,0 +1,13 @@
+.swp
+*.swa
+*.DS_Store
+*.pyc
+*.ipynb
+
+settings.py
+
+# docker stuff
+.env
+venv/
+sql_data/*
+!sql_data/.gitkeep
