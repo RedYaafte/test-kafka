@@ -3,8 +3,12 @@
 *.DS_Store
 *.pyc
 *.ipynb
+*.tgz
 
 settings.py
+dbsqlite3
+.vscode/*
+kafka_2.13-2.6.0/*
 
 # docker stuff
 .env
