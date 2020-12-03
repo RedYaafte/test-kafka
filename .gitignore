@@ -4,6 +4,7 @@
 *.pyc
 *.ipynb
 *.tgz
+*.json
 
 settings.py
 dbsqlite3

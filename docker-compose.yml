@@ -19,7 +19,6 @@ services:
       VIRTUAL_HOST: "${APP_CONTAINER}"
     ports:
       - "${APP_PORT}:${APP_PORT}"
-      - "9092:9092"
     volumes:
       - "${APP_VOLUME}"
     working_dir: "${APP_WORKING_DIR}"
